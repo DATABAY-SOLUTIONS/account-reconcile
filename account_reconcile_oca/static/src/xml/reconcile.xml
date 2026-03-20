@@ -61,7 +61,7 @@
         t-inherit-mode="primary"
     >
         <!-- we pass to the component the selected record -->
-        <xpath expr="//Layout/t[7]" position="attributes">
+        <xpath expr="//Layout/t[8]" position="attributes">
             <attribute name="selectedRecordId">state.selectedRecordId</attribute>
         </xpath>
         <xpath expr="//Layout" position="attributes">
@@ -202,7 +202,7 @@
         t-inherit="web.ListView"
         t-inherit-mode="primary"
     >
-        <xpath expr="//t[@list='model.root']" position="attributes">
+        <xpath expr="//t[@t-component='props.Renderer']" position="attributes">
             <attribute name="parentRecord">props.parentRecord</attribute>
             <attribute name="parentField">props.parentField</attribute>
         </xpath>

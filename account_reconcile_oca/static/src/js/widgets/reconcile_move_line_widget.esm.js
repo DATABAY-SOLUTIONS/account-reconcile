@@ -4,7 +4,7 @@ import {getFieldContext} from "@web/model/relational_model/utils";
 import {registry} from "@web/core/registry";
 import {standardFieldProps} from "@web/views/fields/standard_field_props";
 
-const {Component, useSubEnv} = owl;
+import {Component, useSubEnv} from "@odoo/owl";
 
 export class AccountReconcileMatchWidget extends Component {
     setup() {

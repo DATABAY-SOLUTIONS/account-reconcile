@@ -7,7 +7,7 @@ import {registry} from "@web/core/registry";
 import {useService} from "@web/core/utils/hooks";
 import {standardFieldProps} from "@web/views/fields/standard_field_props";
 
-const {Component} = owl;
+import {Component} from "@odoo/owl";
 
 export class AccountReconcileDataWidget extends Component {
     static props = {

@@ -5,7 +5,7 @@ import {Chatter} from "@mail/chatter/web_portal/chatter";
 import {registry} from "@web/core/registry";
 import {standardFieldProps} from "@web/views/fields/standard_field_props";
 
-const {Component} = owl;
+import {Component} from "@odoo/owl";
 
 export class AccountReconcileChatterWidget extends Component {}
 AccountReconcileChatterWidget.props = {...standardFieldProps};
