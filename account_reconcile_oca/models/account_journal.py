@@ -1,7 +1,7 @@
 # Copyright 2023 Dixmit
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class AccountJournal(models.Model):
@@ -33,7 +33,7 @@ class AccountJournal(models.Model):
             > 0
         ):
             return False
-        return _("Well done! Everything has been reconciled")
+        return self.env._("Well done! Everything has been reconciled")
 
     def open_action(self):
         """

@@ -2,11 +2,12 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
+from odoo.tools.sql import pg_varchar
 
 
 class CharId(fields.Id):
     type = "string"
-    column_type = ("varchar", fields.pg_varchar())
+    column_type = ("varchar", pg_varchar())
 
 
 class AccountAccountReconcile(models.Model):

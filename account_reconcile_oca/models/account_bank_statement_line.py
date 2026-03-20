@@ -7,7 +7,7 @@ from collections import defaultdict
 from dateutil import rrule
 from dateutil.relativedelta import relativedelta
 
-from odoo import Command, _, api, fields, models, tools
+from odoo import Command, api, fields, models, tools
 from odoo.exceptions import UserError
 from odoo.fields import first
 from odoo.tools import LazyTranslate, float_compare, float_is_zero, groupby
@@ -681,8 +681,7 @@ class AccountBankStatementLine(models.Model):
                     self.manual_reference,
                 )
             elif res and res.get("amls"):
-                # TODO should be signed in currency get_reconcile_currency
-                amount = self.amount_total_signed
+                amount = self.amount_currency or self.amount
                 for line in res.get("amls", []):
                     reconcile_auxiliary_id, line_data = self._get_reconcile_line(
                         line,
@@ -899,7 +898,9 @@ class AccountBankStatementLine(models.Model):
                 if line_vals["kind"] == "liquidity":
                     continue
                 if line_vals["kind"] == "suspense":
-                    raise UserError(_("No supense lines are allowed when reconciling"))
+                    raise UserError(
+                        self.env._("No suspense lines are allowed when reconciling")
+                    )
                 line = (
                     self.env["account.move.line"]
                     .with_context(check_move_validity=False, skip_invoice_sync=True)
